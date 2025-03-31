@@ -31,6 +31,10 @@ public class BookController {
         return ResponseEntity.noContent().build();
     }
 
-
+    @PutMapping("/{id}")
+    public ResponseEntity<BookModel> atualizarLivro(@PathVariable Long id, @RequestBody BookDTO bookDTO) {
+        BookModel atualizado = bookService.atualizarLivro(id, bookDTO);
+        return ResponseEntity.ok().body(atualizado);
+    }
 
 }
